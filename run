@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+docker run --rm\
+  -e GITHUB_USER=CHANGE \
+  -e GITHUB_REPO=CHANGE \
+  -e GITHUB_BRANCH=CHANGE \
+  -e GITHUB_TOKEN=CHANGE \
+  -e FORCE_COLOR=1 \
+  -v `pwd`/report:/container/workspace/repocitory-code/test/report \
+   madoos/node-test-builder:latest

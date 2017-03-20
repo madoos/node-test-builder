@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -xe
+
+: "${GITHUB_USER?Need a GitHub username}"
+: "${GITHUB_REPO?Need a repository name}"
+: "${GITHUB_BRANCH?Need a GitHub branch}"
+: "${REPO_DIR:=repocitory-code}"
+: "${TEMP:=temp}"
+
+
+if [[ -z "${GITHUB_TOKEN}" ]]; then
+  git clone -b "$GITHUB_BRANCH" https://github.com/"$GITHUB_USER"/"$GITHUB_REPO".git "$TEMP"
+else
+  git clone -b "$GITHUB_BRANCH" https://"$GITHUB_TOKEN"@github.com/"$GITHUB_USER"/"$GITHUB_REPO".git "$TEMP"
+fi
+
+cp -r  "$TEMP"/*  "$REPO_DIR"
+
+cd "$REPO_DIR"
+
+npm install
+npm test
