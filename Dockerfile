@@ -18,5 +18,5 @@ WORKDIR $WORK_DIR
 
 COPY entrypoint $WORK_DIR
 
-ENTRYPOINT ["/container/workspace/entrypoint"]
+CMD ["/container/workspace/entrypoint"]
 

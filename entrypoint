@@ -15,9 +15,11 @@ else
   git clone -b "$GITHUB_BRANCH" https://"$GITHUB_TOKEN"@github.com/"$GITHUB_USER"/"$GITHUB_REPO".git "$TEMP"
 fi
 
-cp -r  "$TEMP"/*  "$REPO_DIR"
 
-cd "$REPO_DIR"
+cp -r  "$TEMP"/*  "$REPO_DIR"
+cp "$TEMP/.npmrc" "$REPO_DIR"
+
+cd $REPO_DIR
 
 npm install
 npm test
