@@ -37,4 +37,4 @@ rsync -rva --force $WORK_DIR/$TEMP/.*  "$WORK_DIR/$REPO_DIR"
 cd "$WORK_DIR/$REPO_DIR"
 
 npm install
-npm testgit 
+npm test
