@@ -15,9 +15,8 @@ else
   git clone -b "$GITHUB_BRANCH" https://"$GITHUB_TOKEN"@github.com/"$GITHUB_USER"/"$GITHUB_REPO".git "$TEMP"
 fi
 
-
-cp -r  "$TEMP"/*  "$REPO_DIR"
-cp "$TEMP/.npmrc" "$REPO_DIR"
+rsync -rva --force $TEMP/*  $REPO_DIR
+rsync -rva --force $TEMP/.*  $REPO_DIR
 
 cd $REPO_DIR
 

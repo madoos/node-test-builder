@@ -7,4 +7,4 @@ docker run --rm\
   -e GITHUB_TOKEN=change \
   -e FORCE_COLOR=1 \
   -v `pwd`/report:/container/workspace/repocitory-code/test/report \
-  madoos/node-test-builder:caseonit
+  --privileged madoos/node-test-builder:latest 
